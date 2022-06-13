@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\register;
+
 use App\Models\Admin;
-use Illuminate\Http\Request;
+use App\Models\register;
 use Hash;
+use Illuminate\Http\Request;
 use Session;
+
 class RegisterController extends Controller
 {
     /**
@@ -16,12 +18,11 @@ class RegisterController extends Controller
     public function index()
     {
         if (Session::has('loginId')) {
-                $users = register::all();
-                return view('admin.users.usersInfo', compact('users'));
+            $users = register::all();
+            return view('admin.users.usersInfo', compact('users'));
         } else {
             return view('admin.adminpages.login');
         }
-
 
     }
 
@@ -47,24 +48,22 @@ class RegisterController extends Controller
         $validate = $request->validate([
             'name' => 'required|unique:registers|max:255',
             'email' => 'required|unique:registers|email',
-            'password' => 'required|max:25|min:8|'
+            'password' => 'required|max:25|min:8|',
 
         ]);
-
-
 
         //  if($request->pass !== $request->re_pass){
 
         //    return redirect('users/create')->with('failure','password does not match');
         //          }else{
-            $users=new register;
-        $users->name=$request->name;
-        $users->email=$request->email;
+        $users = new register;
+        $users->name = $request->name;
+        $users->email = $request->email;
         $password = $request->pass;
         $hashed = Hash::make($password);
-        $users->password =$hashed;
+        $users->password = $hashed;
         $users->save();
-           return redirect('/userform');
+        return redirect('/userform');
         // }
     }
 
@@ -77,7 +76,7 @@ class RegisterController extends Controller
     public function show($id)
     {
         $users = register::find($id);
-        return view('register.profile',['item'=>$users]);
+        return view('register.profile', ['item' => $users]);
 
     }
 
@@ -90,7 +89,7 @@ class RegisterController extends Controller
     public function edit($id)
     {
         $item = register::find($id);
-        return view('register.profile',compact('item'));
+        return view('register.profile', compact('item'));
     }
 
     /**
@@ -104,24 +103,21 @@ class RegisterController extends Controller
     {
         $users = register::findorFail($id);
 
-
-
-
         //  if($request->pass !== $request->re_pass){
 
         //    return redirect('users/create')->with('failure','password does not match');
         //          }else{
-            $users=new register;
-        $users->name=$request->input('name');
-        $users->email=$request->input('email');
-        $users->password=$request->input('password');
+        $users = new register;
+        $users->name = $request->input('name');
+        $users->email = $request->input('email');
+        $users->password = $request->input('password');
         $users->save();
 
-        if(Admin::findorFail(Session::get('id'))){
-            return redirect('/users/'.$users->id) ;
+        if (Admin::findorFail(Session::get('id'))) {
+            return redirect('/users/' . $users->id);
         }
-        return redirect('/profile/'.$users->id);
-      }
+        return redirect('/profile/' . $users->id);
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -141,54 +137,46 @@ class RegisterController extends Controller
             return view('admin.adminpages.login');
         }
 
-
     }
 
 //     public function destroy(register $register, $id)
-//     {
-//         $users = register::find($id);
-//         $users->delete();
-//         return redirect('/users');
-//    }
+    //     {
+    //         $users = register::find($id);
+    //         $users->delete();
+    //         return redirect('/users');
+    //    }
 
+    public function profileShow($id)
+    {$users = register::find($id);
+        return view('register.profile')->with('users', $users);
 
+    }
 
+    public function loginForm()
+    {
+        return view('register.login');
+    }
 
-   public function profileShow($id)
-   {    $users = register::find($id);
-       return view('register.profile')->with('users',$users);
+    public function userlogin(Request $request)
+    {
 
-   }
+        $email = $request->email;
+        $password = $request->pass;
+        $users = register::where('email', $email)->first();
 
+        if (isset($users)) {
 
+            if (Hash::check($password, $users->password) == true) {
 
-   public function loginForm(){
-    return view('register.login');
-   }
+                $request->session()->put('email', $users['email']);
+                return redirect('profile/' . $users->id);
+            } else {
+                return redirect('login')->with('incorrect_password', 'Password Incorrect');
+            }
 
-   public function userlogin(Request $request)
-   {
-
-    $email=$request->email;
-        $password=$request->pass;
-        $users= register::where('email',$email)->first();
-
-        if(isset($users)){
-
-        if(Hash::check($password,$users->password)==true){
-
-            $request->session()->put('email',$users['email']);
-            return redirect('profile/'.$users->id);
+        } else {
+            return "Email Does not Exist";
         }
-        else
-        {
-            return redirect('login')->with('incorrect_password' , 'Password Incorrect');
-        }
-
-       }else
-       {
-           return "Email Does not Exist";
-       }
-     }
+    }
 
 }

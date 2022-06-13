@@ -5,7 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class register extends Model
+class Register extends Model
 {
-    protected $fillable = ['name , email , password'];
+
+    //protected $table="registers";
+    protected $fillable=[
+        'name',
+        'email',
+        'password'
+    ];
+    use HasFactory;
+
+
+
 }

@@ -1,3 +1,4 @@
+
 @extends('admin.adminLayout.adminMaster')
 
 @section('content')
@@ -71,22 +72,22 @@
                     @endphp
                     @foreach ($admins as $info)
                     <tr>
-                    <td>{{++$i}}</td>
+                    <td>{{++$i}}</td>					
                     <td>{{$info->name}}</td>
                     <td>{{$info->email}}</td>
                     <td>{{$info->created_at}}</td>
                     <td>{{$info->updated_at}}</td>
-                    <td> <a href="admin/{{$info->id}}/edit" class="btn btn-primary">Edit</button></a></td>
+                    <td> <a href="admin/{{$info->id}}/edit" class="btn btn-primary">Edit</button></a></td>					
                     <td>
                        <form action="{{ route('admin.destroy',$info->id )}}" method="post">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Delete</button>
         </form>
-      </td>
+      </td>					
                    </tr>
                     @endforeach
-
+                   
 
                  </tbody></table>
                </div>
@@ -109,3 +110,4 @@
     <!--End Back To Top Button-->
 
 @endsection
+

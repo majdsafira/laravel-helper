@@ -15,12 +15,6 @@
   <body>
     <div>
 
-    {{-- @if (session::has('status'))
-    <div class="alert alert-success">
-        {{ session::get('status') }}
-    </div>
-@endif --}}
-
         <form action="{{route('donate.store')}}" method="post">
           @csrf
             <div class="container">
@@ -54,30 +48,24 @@
                     <label for="phonenum"> Phone number: </label>
                     <input class="form-control" type="tel"  name="number" placeholder="phonenumber" required>
 
-
-
-
                     <label for="location"> Address: </label>
                     <input class="form-control" type="text" name="address" placeholder="Address" required>
-
-
-                   {{-- <div  class="form-group"> --}}
-                       {{-- <label ><strong>Tools :</strong></label><br> --}}
-                       {{-- <label><input type="checkbox" name="tools[]" value="Red"> Red</label> <br> --}}
-                       {{-- <label><input type="checkbox" name="tools[]" value="Blue"> Blue</label><br> --}}
-                       {{-- <label><input type="checkbox" name="tools[]" value="Green"> Green</label><br> --}}
-                       {{-- <label><input type="checkbox" name="tools[]" value="Yellow"> Yellow</label> --}}
-                   {{-- </div> --}}
-
-                   <label for="location"> Address: </label>
-                   <input class="form-control" type="text" name="tools" placeholder="Address" required>
-
 
 
 
 
                     <hr class="mb-3">
-
+                      <div  class="form-group  ">
+                       <label ><strong>Tools :</strong></label><br>
+                         <label><input type="checkbox" name="tools[]" value="paint"> paint</label> <br>
+                         <label><input type="checkbox" name="tools[]" value="Bricks"> Bricks</label><br>
+                         <label><input type="checkbox" name="tools[]" value="Grit"> Grit</label><br>
+                         <label><input type="checkbox" name="tools[]" value="Rebar"> Rebar</label>
+                         <label><input type="checkbox" name="tools[]" value="Cement"> Cement</label>
+                         <label><input type="checkbox" name="tools[]" value="Electrical wires"> Electrical wires</label>
+                         <label><input type="checkbox" name="tools[]" value="Doors">Doors</label>
+                         <label><input type="checkbox" name="tools[]" value="Windows">Windows</label>
+                   </div>
                     <input id="" class="btn btn-outline-light botton" type="submit" name="create" value="submit">
                     <a style="margin-top: 10px" class="btn btn-outline-light botton" href="/services">Back</a>
 

@@ -35,7 +35,7 @@
 	<div class="row">
 	 <div class="col-12 col-lg-12">
 	   <div class="card">
-	     <div class="card-header">Users Tables
+	     <div class="card-header">cases Tables
 		  <div class="card-action">
              <div class="dropdown">
              <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
@@ -60,9 +60,9 @@
                      <th>Phone</th>
                      <th>address</th>
                      <th>description</th>
-                     <th>Status</th>
+                     <th style="width: 350px">Status</th>
+                     <th >Actions</th>
 
-                     <th style="width: 350px">Actions</th>
 
                    </tr>
                    </thead>
@@ -78,7 +78,22 @@
                         <td>{{$item->Phone}}</td>
                         <td>{{$item->address}}</td>
                         <td>{{$item->description}}</td>
-                        <td >
+
+                        <td class = "row">
+                           <form action="{{route('toggle',$item->id)}}" method="POST">
+                            @csrf
+                            {{-- @method('PUT') --}}
+                            <div class="col-lg-1">
+                              <input type="checkbox" name='status'>
+                               <button type="submit" class="btn btn-danger">Update</button>
+                            </div>
+
+                          </form>
+
+
+
+                        </td>
+<td >
                             <div class = "row">
 
                             <div class="col-lg-1" >
@@ -88,9 +103,9 @@
                                     <button type="submit" class="btn btn-danger  px-4">delete</button>
                                     </form>
                             </div>
+
                             </div>
                         </td>
-
                    </tr>
                    @endforeach
 

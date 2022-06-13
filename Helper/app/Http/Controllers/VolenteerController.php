@@ -6,7 +6,6 @@ use App\Models\volenteer;
 use Illuminate\Http\Request;
 use Session;
 
-
 class VolenteerController extends Controller
 {
     /**
@@ -17,7 +16,7 @@ class VolenteerController extends Controller
     public function index()
     {
         $volenteers = Volenteer::all();
-        return view('pages.services.volenteers', compact('volenteers'));    }
+        return view('pages.services.volenteers', compact('volenteers'));}
 
     /**
      * Show the form for creating a new resource.
@@ -26,7 +25,7 @@ class VolenteerController extends Controller
      */
     public function create()
     {
-        return view('pages.services.volenteers');    }
+        return view('pages.services.volenteers');}
 
     /**
      * Store a newly created resource in storage.
@@ -41,26 +40,24 @@ class VolenteerController extends Controller
             'email' => 'required|unique:registers|email',
             'career' => 'required',
             'address' => 'required',
-            'number'=> 'required',
+            'number' => 'required',
             'age' => 'required',
 
         ]);
 
+        if ($request == true) {
+            $volunteer = new volenteer;
+            $volunteer->name = $request->input('name');
+            $volunteer->email = $request->input('email');
+            $volunteer->age = $request->input('age');
+            $volunteer->number = $request->input('number');
+            $volunteer->address = $request->input('address');
+            $volunteer->career = $request->input('career');
 
-
-            if($request== true){
-                $volunteer= new volenteer;
-                $volunteer-> name= $request->input ('name');
-                $volunteer-> email= $request->input ('email');
-                $volunteer-> age= $request->input ('age');
-                $volunteer-> number= $request->input ('number');
-                $volunteer-> address= $request->input ('address');
-                $volunteer-> career= $request->input ('career');
-
-                $volunteer-> save();
+            $volunteer->save();
 
             return redirect('/volenteers')
-                ->with('success','Your informasion submited successfully'); }    }
+                ->with('success', 'Your informasion submited successfully');}}
 
     /**
      * Display the specified resource.
@@ -115,17 +112,15 @@ class VolenteerController extends Controller
 
     }
 
-
     public function volenteersInfo()
     {
         if (Session::has('loginId')) {
-        $volenteers = Volenteer::all();
-        return view('admin.volenteers.index')->with('volenteers', $volenteers);
+            $volenteers = Volenteer::all();
+            return view('admin.volenteers.index')->with('volenteers', $volenteers);
 
-         } else {
-             return view('admin.adminpages.login');
-         }
-
+        } else {
+            return view('admin.adminpages.login');
+        }
 
     }
 }

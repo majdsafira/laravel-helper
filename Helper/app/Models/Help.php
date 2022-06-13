@@ -7,12 +7,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class Help extends Model
 {
-    protected $fillable = ['name' ,
-     'Phone' ,
-      'address',
-       'case_image',
-        'identity_image',
-         'social_security',
-         'description'
-          ];
+
+    protected $fillable = [
+    'name' ,
+    'phone' ,
+    'address' , 
+    'case_image' , 
+    'identity_image' , 
+    'social_security' , 
+    'status' , 
+    'description'
+    ] ;
+
+    
+
+
+
+
 }

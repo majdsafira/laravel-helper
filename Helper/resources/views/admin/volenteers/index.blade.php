@@ -1,4 +1,3 @@
-
 @extends('admin.adminLayout.adminMaster')
 
 @section('content')
@@ -35,7 +34,7 @@
 	<div class="row">
 	 <div class="col-12 col-lg-12">
 	   <div class="card">
-	     <div class="card-header">Users Tables
+	     <div class="card-header">Volenteers Tables
 		  <div class="card-action">
              <div class="dropdown">
              <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">

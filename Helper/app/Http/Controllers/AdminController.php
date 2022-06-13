@@ -147,9 +147,7 @@ class AdminController extends Controller
         $admin = Admin::where('email', '=', $request->email)->first();
         if ($admin) {
 
-
             if (Hash::check($request->password, $admin->password)) {
-
 
                 //for navbar
                 $name = $request->session()->put('name', $admin->name);
@@ -157,7 +155,6 @@ class AdminController extends Controller
                 //for login
                 $request->session()->put('loginId', $admin->id);
                 return redirect('/admin');
-
 
             } else {
                 return back()->with('fail', 'Password not matches');
@@ -173,5 +170,10 @@ class AdminController extends Controller
             Session::pull('loginId');
             return redirect('login');
         }
+    }
+
+
+    public function viewDash(){
+        return view('admin.adminPages.index');
     }
 }
