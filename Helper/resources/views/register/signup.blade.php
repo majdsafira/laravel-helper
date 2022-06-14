@@ -11,7 +11,6 @@
 
     <!-- Main css -->
     <link rel="stylesheet" href="/register/css/style.css">
-
 </head>
 <body>
 

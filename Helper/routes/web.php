@@ -32,7 +32,6 @@ Route::resource('home', HelpController::class);
 Route::resource('donate', DonateController::class);
 
 Route::get('don', [DonateController::class, 'create']);
-Route::get('/profile/{id}', 'App\Http\Controllers\RegisterController@profileShow')->name('profile');
 Route::get('/userform', 'App\Http\Controllers\RegisterController@loginForm')->name('userform');
 Route::post('/userlogin', 'App\Http\Controllers\RegisterController@userlogin')->name('userlogin');
 Route::put('/update', 'App\Http\Controllers\RegisterController@update')->name('update');

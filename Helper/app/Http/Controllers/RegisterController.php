@@ -63,7 +63,7 @@ class RegisterController extends Controller
         $hashed = Hash::make($password);
         $users->password = $hashed;
         $users->save();
-        return redirect('/userform');
+        return redirect('/home');
         // }
     }
 
@@ -76,7 +76,7 @@ class RegisterController extends Controller
     public function show($id)
     {
         $users = register::find($id);
-        return view('register.profile', ['item' => $users]);
+        return view('/home');
 
     }
 
@@ -89,7 +89,7 @@ class RegisterController extends Controller
     public function edit($id)
     {
         $item = register::find($id);
-        return view('register.profile', compact('item'));
+        return view('/home');
     }
 
     /**
@@ -114,11 +114,10 @@ class RegisterController extends Controller
         $users->save();
 
         if (Admin::findorFail(Session::get('id'))) {
-            return redirect('/users/' . $users->id);
+            return redirect('/home');
         }
-        return redirect('/profile/' . $users->id);
+        return redirect('/home');
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -146,11 +145,7 @@ class RegisterController extends Controller
     //         return redirect('/users');
     //    }
 
-    public function profileShow($id)
-    {$users = register::find($id);
-        return view('register.profile')->with('users', $users);
 
-    }
 
     public function loginForm()
     {
@@ -169,7 +164,7 @@ class RegisterController extends Controller
             if (Hash::check($password, $users->password) == true) {
 
                 $request->session()->put('email', $users['email']);
-                return redirect('profile/' . $users->id);
+                return redirect('/home');
             } else {
                 return redirect('login')->with('incorrect_password', 'Password Incorrect');
             }
