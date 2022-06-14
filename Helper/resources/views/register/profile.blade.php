@@ -80,7 +80,7 @@
                               <div class="form-group">
                                 <label>Email</label>
                                 <input class="form-control" type="text" placeholder="user@example.com" name="email" value="{{$users->email}}">
-
+                             
                               </div>
                             </div>
                           </div>
