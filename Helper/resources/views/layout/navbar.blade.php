@@ -56,7 +56,7 @@
 
                 </div>
                 @if (Session::has('userId'))
-                <a class="button button-primary button-sm " href="/userform">logout</a>
+                <a class="button button-primary button-sm " href="{{route('login.create')}}">logout</a>
                 @else
                 <a class="button button-primary button-sm " href="/userform">login</a>
                 @endif              </div>

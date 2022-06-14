@@ -24,7 +24,8 @@ class login extends Controller
      */
     public function create(Request $request)
     {
-
+        $request->session()->flush();
+        return redirect('home');
     }
 
     /**
