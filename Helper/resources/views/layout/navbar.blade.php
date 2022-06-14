@@ -55,10 +55,11 @@
                   </div>
 
                 </div>
-
+                @if (Session::has('userId'))
+                <a class="button button-primary button-sm " href="/userform">logout</a>
+                @else
                 <a class="button button-primary button-sm " href="/userform">login</a>
-
-              </div>
+                @endif              </div>
             </div>
           </nav>
         </div>
