@@ -60,7 +60,7 @@
                      <th>Phone</th>
                      <th>address</th>
                      <th>description</th>
-                     <th style="width: 350px">Status</th>
+                     <th>Status</th>
                      <th >Actions</th>
 
 
@@ -85,7 +85,7 @@
                             {{-- @method('PUT') --}}
                             <div class="col-lg-1">
                               <input type="checkbox" name='status'>
-                               <button type="submit" class="btn btn-danger">Update</button>
+                               <button type="submit" class="btn btn-primary">Update</button>
                             </div>
 
                           </form>

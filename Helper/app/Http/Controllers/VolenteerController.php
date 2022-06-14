@@ -56,7 +56,7 @@ class VolenteerController extends Controller
 
             $volunteer->save();
 
-            return redirect('/volenteers')
+            return redirect('/services')
                 ->with('success', 'Your informasion submited successfully');}}
 
     /**
