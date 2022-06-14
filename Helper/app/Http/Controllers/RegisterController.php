@@ -97,16 +97,16 @@ class RegisterController extends Controller
 
         //    return redirect('users/create')->with('failure','password does not match');
         //          }else{
-        $users = new register;
         $users->name = $request->input('name');
         $users->email = $request->input('email');
-        $users->password = $request->input('password');
-        $users->save();
-
+        
+        $users->save(); 
+        if(Session::has('id')){
         if (Admin::findorFail(Session::get('id'))) {
             return redirect('/home');
-        }
-        return redirect('/home');
+        }}
+        return view('register.profile' , compact('users'));
+       
     }
     /**
      * Remove the specified resource from storage.
