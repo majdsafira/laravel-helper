@@ -24,7 +24,7 @@
                     <div class="signup-form">
                         <h2 class="form-title">Log In</h2>
 
-                        <form method="post" class="register-form" id="register-form" action="{{route('userlogin')}}">
+                        <form method="post" class="register-form" id="register-form" action="{{route('login.store')}}">
                             @csrf
 
                             <div class="form-group">
@@ -38,7 +38,7 @@
 
 
                             <div class="form-group form-button">
-                                <input type="submit" name="signup" id="signup" class="form-submit" value="submit"/>
+                                <input type="submit" name="signup" id="signup" class="form-submit" value="Log in "/>
                             </div>
                         </form>
                     </div>

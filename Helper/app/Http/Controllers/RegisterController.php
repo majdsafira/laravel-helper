@@ -51,20 +51,10 @@ class RegisterController extends Controller
             'password' => 'required|max:25|min:8|',
 
         ]);
-
-        //  if($request->pass !== $request->re_pass){
-
-        //    return redirect('users/create')->with('failure','password does not match');
-        //          }else{
-        $users = new register;
-        $users->name = $request->name;
-        $users->email = $request->email;
-        $password = $request->pass;
-        $hashed = Hash::make($password);
-        $users->password = $hashed;
-        $users->save();
+        $data = $request->all();
+        $data['password'] = Hash::make($data['password']);
+        register::create($data);
         return redirect('/userform');
-        // }
     }
 
     /**

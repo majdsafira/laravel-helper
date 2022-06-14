@@ -56,10 +56,10 @@
                             @error('password')
                             <div class="alert alert-danger mt-1 mb-1" style="color:red">{{ $message }}</div>
                                @enderror
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
                                 <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password"/>
-                            </div>
+                            </div> --}}
 
 
                             <div class="form-group form-button">

@@ -8,6 +8,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\VolenteerController;
 use App\Http\Controllers\HelpController;
 use App\Http\Controllers\DonateController;
+use App\Http\Controllers\login;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,14 @@ use App\Http\Controllers\DonateController;
 | contains the "web" middleware group. Now create something great!
 |
  */
+
+
+ /*****************  abood routes ************************ */
+
+Route::resource('login', login::class);
+
+/*****************  abood routes ************************ */
+
 
 // Route::get('/', 'App\Http\Controllers\TemplateController@index');
 Route::get('/about', 'App\Http\Controllers\TemplateController@about');
@@ -40,7 +49,7 @@ Route::get('/casesinfo', 'App\Http\Controllers\HelpController@casesInfo')->name(
 Route::get('/volenteersinfo', 'App\Http\Controllers\VolenteerController@volenteersInfo')->name('volenteersinfo');
 
 Route::get('adminLogin', 'App\Http\Controllers\AdminController@login');
-Route::get('/login', 'App\Http\Controllers\AdminController@authLogin')->name('login-auth');
+//Route::get('/login', 'App\Http\Controllers\AdminController@authLogin')->name('login-auth');
 Route::get('/loginout', 'App\Http\Controllers\AdminController@logout')->name('logout');
 Route::post('/toggle/{id}', 'App\Http\Controllers\HelpController@toggle')->name('toggle');
 
