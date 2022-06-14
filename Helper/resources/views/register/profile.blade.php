@@ -1,4 +1,13 @@
-<!doctype html>
+
+@extends('layout.master')
+@section('content')
+<style>
+body{
+  background-color:#7fbc4e33;
+}
+
+</style>
+{{-- <!doctype html>
 <html lang="en">
   <head>
     <title>Title</title>
@@ -18,8 +27,8 @@
 <div class="row flex-lg-nowrap">
 
 
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-  <div class="container">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"> --}}
+  <div class="container" style="margin-top: 120px">
   <div class="row flex-lg-nowrap">
     <div class="col-12 col-lg-auto mb-3" style="width: 200px;">
 
@@ -35,7 +44,7 @@
                   <div class="col-12 col-sm-auto mb-3">
                     <div class="mx-auto" style="width: 140px;">
                       <div class="d-flex justify-content-center align-items-center rounded" style="height: 140px; ">
-                       <img src="/register/images/OIP.jfif" style="width:120px;height:120px" >
+                       <img src="/register/images/OIP.jfif" style="width:140px;height:130px" >
                       </div>
                     </div>
                   </div>
@@ -87,9 +96,7 @@
 
                         </div>
                       </div>
-                      <div class="row">
-
-                      </div>
+                     
                       <div class="row">
                         <div class="col d-flex justify-content-end">
                           <button class="btn btn-primary" type="submit">Save Changes</button>
@@ -133,8 +140,6 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
-</html>
+  
+    @endsection
+
