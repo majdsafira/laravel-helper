@@ -48,7 +48,7 @@ Route::get('/casesinfo', 'App\Http\Controllers\HelpController@casesInfo')->name(
 Route::get('/volenteersinfo', 'App\Http\Controllers\VolenteerController@volenteersInfo')->name('volenteersinfo');
 
 Route::get('adminLogin', 'App\Http\Controllers\AdminController@login');
-//Route::get('/login', 'App\Http\Controllers\AdminController@authLogin')->name('login-auth');
+Route::get('/loginad', 'App\Http\Controllers\AdminController@authLogin')->name('login-auth');
 Route::get('/loginout', 'App\Http\Controllers\AdminController@logout')->name('logout');
 Route::post('/toggle/{id}', 'App\Http\Controllers\HelpController@toggle')->name('toggle');
 
