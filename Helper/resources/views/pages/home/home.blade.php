@@ -97,8 +97,8 @@
 
                   </div>
                   <h5 class="font-weight-medium">{{$item->description}}</h5>
-                  <a class="button button-sm button-primary" href="/don">Donate</a>
-                  <a class="button button-sm button-primary" href="/volenteers">Volunteer</a>
+                  {{-- <a class="button button-sm button-primary" href="/don">Donate</a>
+                  <a class="button button-sm button-primary" href="/volenteers">Volunteer</a> --}}
 
                 </article>
               </div>

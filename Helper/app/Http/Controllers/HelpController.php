@@ -27,7 +27,12 @@ class HelpController extends Controller
      */
     public function create()
     {
-        return view('pages.home.create');
+        if (Session::has('userId')){
+            return view('pages.home.create');
+        }
+        else{
+            return view('register.login');
+        }
 
     }
 
