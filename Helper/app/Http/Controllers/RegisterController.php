@@ -151,6 +151,8 @@ class RegisterController extends Controller
 
         if (isset($users)) {
 
+
+
             if (Hash::check($password, $users->password) == true) {
 
                 $request->session()->put('email', $users['email']);
@@ -163,6 +165,8 @@ class RegisterController extends Controller
             return "Email Does not Exist";
         }
     }
+
+    
     public function profileShow($id)
     {    $users = register::find($id);
         return view('register.profile')->with('users',$users);

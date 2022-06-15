@@ -44,11 +44,12 @@ class login extends Controller
                 return view('register.profile' , compact('users'));
             }
             else{
-                return 'login failed';
+                return redirect()->back()->with('status','Wrong password');
             }
         }
         else{
-            return 'email dose not exist';
+            return redirect()->back()->with('status','email does not exist');
+           
         }
       
     }
