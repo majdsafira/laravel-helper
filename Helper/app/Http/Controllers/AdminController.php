@@ -88,6 +88,7 @@ class AdminController extends Controller
     } else {
         return view('admin.adminpages.login');
     }
+
     }
 
     /**
@@ -175,5 +176,9 @@ class AdminController extends Controller
 
     public function viewDash(){
         return view('admin.adminPages.index');
+    }
+
+    public function majd() {
+       
     }
 }
