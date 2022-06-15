@@ -9,6 +9,7 @@ use App\Http\Controllers\VolenteerController;
 use App\Http\Controllers\HelpController;
 use App\Http\Controllers\DonateController;
 use App\Http\Controllers\login;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,7 +55,7 @@ Route::post('/toggle/{id}', 'App\Http\Controllers\HelpController@toggle')->name(
 
 Route::get('dash', 'App\Http\Controllers\AdminController@viewDash');
 Route::get('/profile/{id}','App\Http\Controllers\RegisterController@profileShow')->name('profile');
+Route::post('/volStatus/{id}','App\Http\Controllers\VolenteerController@volStatus')->name('volStatus');
 
+Route::resource('contact', ContactController::class);
 
-
-Route::get('majd', [DonateController::class, 'majd']);

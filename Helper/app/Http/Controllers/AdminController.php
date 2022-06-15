@@ -178,7 +178,5 @@ class AdminController extends Controller
         return view('admin.adminPages.index');
     }
 
-    public function majd() {
-       
-    }
+   
 }

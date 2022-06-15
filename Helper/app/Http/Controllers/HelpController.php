@@ -165,11 +165,14 @@ class HelpController extends Controller
     public function toggle($id)
     {
         $cases = new Help;
-        $cases->where('id', $id)->update(['status' => request('status') == 'on' ? 1:0]);
+        $cases->where('id', $id)->update(['status' => request('status') == 'Done' ? 1:0]);
         
         return redirect()->route('casesinfo')
             ->with('message', 'User has been approved successfully');
 
     }
+
+
+
 
 }

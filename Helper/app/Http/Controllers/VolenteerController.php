@@ -123,4 +123,14 @@ class VolenteerController extends Controller
         }
 
     }
+
+     public function volStatus($id)
+    {
+        $vol = new volenteer;
+        $vol->where('id', $id)->update(['status' => request('status') == 'Approved' ? 1:0]);
+        
+        return redirect()->route('volenteersinfo')
+            ->with('message', 'volenteer has been approved successfully');
+
+    }
 }
