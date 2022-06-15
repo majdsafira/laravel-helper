@@ -7,10 +7,10 @@
     <title>Sign Up Form by Colorlib</title>
 
     <!-- Font Icon -->
-    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="{{asset('fonts/material-icon/css/material-design-iconic-font.min.css')}}">
 
     <!-- Main css -->
-    <link rel="stylesheet" href="register/css/style.css">
+    <link rel="stylesheet" href="{{asset('register/css/style.css')}}">
 
 </head>
 <body>
@@ -44,7 +44,7 @@
                         </form>
                     </div>
                     <div class="signup-image">
-                        <figure><img src="register/images/im.png" alt="sing up image" style="height: 200px;width:400px"></figure>
+                        <figure><img src="{{asset('register/images/im.png')}}" alt="sing up image" style="height: 200px;width:400px"></figure>
                         <a href="/users/create" class="signup-image-link">Don't have account? Register</a>
                     </div>
                 </div>
