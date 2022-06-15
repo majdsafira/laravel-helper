@@ -54,3 +54,7 @@ Route::post('/toggle/{id}', 'App\Http\Controllers\HelpController@toggle')->name(
 
 Route::get('dash', 'App\Http\Controllers\AdminController@viewDash');
 Route::get('/profile/{id}','App\Http\Controllers\RegisterController@profileShow')->name('profile');
+
+
+
+Route::get('majd', [DonateController::class, 'majd']);
