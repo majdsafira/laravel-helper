@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="icon" href="{{asset('images/favicon.png')}}" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" >
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Poppins:300,300i,400,500,600,700,800,900,900i%7CRoboto:400%7CRubik:100,400,700">
     <link rel="stylesheet" href={{asset('/css/bootstrap.css')}}>
     <link rel="stylesheet" href={{asset('/css/fonts.css')}}>
@@ -62,9 +66,17 @@
 
                 </div>
                 
-                @if (Session::has('userId'))
-                <a class="button button-primary button-sm " href="{{route('login.create')}}" style="position:relative;left:200px;height:35px;font-size:13px">logout</a>
-                <a class="button button-primary button-sm " href="/profile/1" style="height:35px;font-size:13px">profile</a>
+                @if (Session::has('userId'))               
+                {{-- <a class="button button-primary button-sm " href="{{route('login.create')}}" style="position:relative;left:200px;height:35px;font-size:13px">logout</a>
+                <a class="button button-primary button-sm " href="/profile/1" style="height:35px;font-size:13px">profile</a> --}}
+                <div class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-user-circle" style="font-size:40px;color:white"></i></a>
+                  <div class="dropdown-menu bg-light m-0">
+                      {{-- <a href="{{route('doneredit')}}" class="dropdown-item">Account</a> --}}
+                      <a href="/profile/1" class="dropdown-item">Account</a>
+                      <a href="{{route('login.create')}}" class="dropdown-item">Logout</a>
+                  </div>
+              </div>
                 @else
                 <a class="button button-primary button-sm " href="/userform">login</a>
                 @endif              </div>
@@ -75,7 +87,7 @@
 
 <style>
 body{
-  background-color:#c3e4a833;
+  background-color:#eef4e933;
 }
 
 </style>

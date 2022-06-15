@@ -41,7 +41,8 @@ class login extends Controller
         if(isset($users)){
             if(Hash::check($password,$users->password )){
                 $request->session()->put('userId' ,$users->id );
-                return view('register.profile' , compact('users'));
+                // return view('register.profile' , compact('users'));
+                return redirect('home');
             }
             else{
                 return redirect()->back()->with('status','Wrong password');
