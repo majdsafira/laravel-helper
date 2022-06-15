@@ -163,5 +163,10 @@ class RegisterController extends Controller
             return "Email Does not Exist";
         }
     }
+    public function profileShow($id)
+    {    $users = register::find($id);
+        return view('register.profile')->with('users',$users);
+ 
+    }
 
 }

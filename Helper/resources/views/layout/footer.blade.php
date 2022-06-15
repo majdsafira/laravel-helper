@@ -6,7 +6,7 @@
         <div class="container p-4"></div>
 
 
-        <div class="col-12"><a href="index.html"><img src="images/logo-inverse-415x103.png" alt="" width="207" height="51"/></a></div>
+        <div class="col-12"><a href="index.html"><img src="{{asset('images/logo-inverse-415x103.png')}}" alt="" width="207" height="51"/></a></div>
 
 
 

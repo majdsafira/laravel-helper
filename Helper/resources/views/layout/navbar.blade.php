@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="{{asset('images/favicon.png')}}" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Poppins:300,300i,400,500,600,700,800,900,900i%7CRoboto:400%7CRubik:100,400,700">
     <link rel="stylesheet" href={{asset('/css/bootstrap.css')}}>
     <link rel="stylesheet" href={{asset('/css/fonts.css')}}>
@@ -36,7 +36,7 @@
                   <!-- RD Navbar Toggle-->
                   <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
                   <!-- RD Navbar Brand-->
-                  <div class="rd-navbar-brand"><a href="index.html"><img class="brand-logo-light" src="images/logo-inverse-415x103.png" alt="" width="207" height="51"/></a></div>
+                  <div class="rd-navbar-brand"><a href="index.html"><img class="brand-logo-light" src="{{asset('images/logo-inverse-415x103.png')}}" alt="" width="207" height="51"/></a></div>
                 </div>
                 <div class="rd-navbar-main-element">
                   <div class="rd-navbar-nav-wrap">
@@ -55,8 +55,10 @@
                   </div>
 
                 </div>
+                
                 @if (Session::has('userId'))
-                <a class="button button-primary button-sm " href="{{route('login.create')}}">logout</a>
+                <a class="button button-primary button-sm " href="{{route('login.create')}}" style="position:relative;left:200px;height:35px;font-size:13px">logout</a>
+                <a class="button button-primary button-sm " href="/profile/40" style="height:35px;font-size:13px">profile</a>
                 @else
                 <a class="button button-primary button-sm " href="/userform">login</a>
                 @endif              </div>

@@ -11,6 +11,7 @@
 
     <!-- Main css -->
     <link rel="stylesheet" href="register/css/style.css">
+
 </head>
 <body>
 
@@ -22,9 +23,9 @@
             <div class="container">
                 <div class="signup-content">
                     <div class="signup-form">
-                        <h2 class="form-title">Log In</h2>
+                        {{-- <h2 class="form-title">Log In</h2> --}}
 
-                        <form method="post" class="register-form" id="register-form" action="{{route('login.store')}}">
+                        <form method="post" class="register-form" id="register-form" action="{{route('login.store')}}" style="position: relative;top:50px">
                             @csrf
 
                             <div class="form-group">
@@ -38,12 +39,12 @@
 
 
                             <div class="form-group form-button">
-                                <input type="submit" name="signup" id="signup" class="form-submit" value="Log in "/>
+                                <input type="submit" name="signup" id="signup" class="form-submit" value="Log in " style="background-color:rgb(103, 200, 103)"/>
                             </div>
                         </form>
                     </div>
                     <div class="signup-image">
-                        <figure><img src="register/images/n.png" alt="sing up image"></figure>
+                        <figure><img src="register/images/im.png" alt="sing up image" style="height: 200px;width:400px"></figure>
                         <a href="/users/create" class="signup-image-link">Don't have account? Register</a>
                     </div>
                 </div>
